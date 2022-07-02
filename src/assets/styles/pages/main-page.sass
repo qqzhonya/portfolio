@@ -8,7 +8,11 @@
 
 	&-intro
 		display: flex
-		display: none
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
 		justify-content: center
 		align-items: center
 		flex-flow: column
@@ -28,14 +32,14 @@
 	width: 1440px
 	min-height: 810px
 	height: 100%
-	height: 810px
 	max-height: 810px
 	font-family: $interface-font
 	background-color: #252526
 	border: 1px solid rgba(255, 255, 255, 0.2)
 		radius: 10px
-	box-shadow: 0 10px 30px rgba(0, 0, 0, .4)
+	box-shadow: 0 10px 30px #272727be
 	flex-flow: column
+	opacity: 0
 	// overflow: hidden
 
 	--head-height: 28px
@@ -337,19 +341,23 @@
 			strong
 				font-weight: 700
 		
+			&-path
+				flex-shrink: 0
+
 		&-input
 			display: flex
+			width: 100%
 			position: relative
 			align-items: center
 
 			&-field
-				min-width: 20px
+				width: 100%
 				color: #CCCCCC
 				background-color: transparent
 				border: 0
 
 				&:focus
-					background-color: rgba(tomato, .2)
+					background-color: rgba(#CCCCCC, .2)
 
 	&-footer
 		flex: 0 0 auto

@@ -208,7 +208,6 @@
 		flex-flow: column
 		gap: 3px
 		counter-reset: rows
-		overflow-y: auto
 
 		&-row
 			display: flex
@@ -355,7 +354,9 @@
 				color: #CCCCCC
 				background-color: transparent
 				border: 0
+				transition: $default-transition
 
+				&:hover,
 				&:focus
 					background-color: rgba(#CCCCCC, .2)
 

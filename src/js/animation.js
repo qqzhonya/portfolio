@@ -146,9 +146,23 @@ tl.fromTo(
 )
 .to(
 	'.editor',
-	{rotateX: 0},
+	{
+		rotateX: 0,
+		onComplete: afterFunction,
+	},
 	'<'
 );
+
+function afterFunction() {
+	const editorField = document.querySelector('.editor-field');
+	const terminalInputField = document.querySelector('.editor-terminal-input-field');
+
+	console.log('animation end')
+
+	editorField.style.overflowY = 'auto';
+	terminalInputField.focus();
+}
+
 
 (function terminal() {
 	const terminalField = document.querySelector('.editor-terminal-field');

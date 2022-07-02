@@ -1,0 +1,130 @@
+*,
+body,
+html
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+html,
+body
+	min-width: 320px
+
+html
+	height: 100%
+	font-family: $default-font
+	font-size: $base-font-size
+	scroll-behavior: smooth
+
+body
+	height: 100%
+	color: $white
+	background-color: $bg-color
+	scroll-behavior: smooth
+	text-rendering: optimizeSpeed
+
+	&.modal-active
+		overflow: hidden
+
+*,
+*::before,
+*::after
+	box-sizing: border-box
+
+a
+	text-decoration: none
+	outline: none
+
+a:not([class])
+	text-decoration-skip-ink: auto
+
+img
+	display: block
+	max-width: 100%
+	height: auto
+
+input,
+textarea,
+select,
+button
+	font: inherit
+	border-radius: 0
+	appearance: none
+	outline: none
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0)
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video,
+textarea
+	vertical-align: middle
+
+fieldset
+	border: 0
+
+section
+	position: relative
+
+// .visually-hidden
+.visually-hidden
+	position: absolute
+	margin: -1px
+	padding: 0
+	width: 1px
+	height: 1px
+	border: 0
+	white-space: nowrap
+	clip-path: inset(100%)
+	clip: rect(0 0 0 0)
+	overflow: hidden
+
+// .wrapper
+.wrapper
+	display: flex
+	flex-direction: column
+	height: 100%
+
+// .content
+.content
+	padding: 0 32px
+	flex: 1 0 auto
+
+// .logo
+.logo
+	display: inline-block
+	transition: $default-transition
+
+	&:hover,
+	&:focus
+		opacity: $default-opacity
+
+// .container
+.container
+	position: relative
+	margin:
+		left: auto
+		right: auto
+	width: 100%
+	max-width: 100%
+
+// .p-tb
+.p-tb
+	padding:
+		top: 64px
+		bottom: 64px
+
+// .m-tb
+.m-tb
+	margin:
+		top: 64px
+		bottom: 64px
+
+// For on scroll animation
+.fade-in
+	transition: 1s
+	opacity: .1
+
+.fade-in.appear
+	opacity: 1

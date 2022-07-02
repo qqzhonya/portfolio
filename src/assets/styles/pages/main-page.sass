@@ -1,0 +1,361 @@
+.main
+	display: flex
+	width: 100%
+	height: 100vh
+	justify-content: center
+	align-items: center
+	overflow-y: auto
+
+	&-intro
+		display: flex
+		display: none
+		justify-content: center
+		align-items: center
+		flex-flow: column
+		gap: 12px
+
+		&-heading
+			font-size: 1em
+			font-weight: 400
+			color: #F6F7F9
+			text-align: center
+
+.editor
+	display: flex
+	position: relative
+	width: 100%
+	max-width: 1440px
+	width: 1440px
+	min-height: 810px
+	height: 100%
+	height: 810px
+	max-height: 810px
+	font-family: $interface-font
+	background-color: #252526
+	border: 1px solid rgba(255, 255, 255, 0.2)
+		radius: 10px
+	box-shadow: 0 10px 30px rgba(0, 0, 0, .4)
+	flex-flow: column
+	// overflow: hidden
+
+	--head-height: 28px
+	--footer-height: 22px
+	--tab-height: 34px
+	--breadcrumbs-height: 22px
+	--terminal-height: 150px
+
+	&-head
+		padding: 8px
+		height: var(--head-height)
+		background-color: #3C3C3C
+		border:
+			top-left-radius: 10px
+			top-right-radius: 10px
+		flex: 0 0 auto
+
+		&-wrap
+			display: flex
+			align-items: center
+			gap: 8px
+
+		&-btn
+			width: 12px
+			height: 12px
+			background-color: gray
+			border:
+				radius: 50%
+
+			&.close
+				background-color: #EC6A5E
+			
+			&.collapse
+				background-color: #F4BE4F
+			
+			&.expand
+				background-color: #61C555
+
+	&-body
+		display: flex
+		flex: 1 0 auto
+
+	&-sidebar
+		width: 48px
+		background-color: #333333
+		height: 100%
+
+		&-btn
+			display: flex
+			margin:
+				left: -1px
+			width: 48px
+			height: 48px
+			background-color: transparent
+			border: 0
+				left: 2px solid #FEFEFE
+			cursor: pointer
+			
+			&-icon
+				margin: auto
+				max-width: 21px
+
+	&-explorer
+		padding: 11px 5px
+		width: 100%
+		max-width: 184px
+		background-color: #252526
+
+		&-title
+			padding: 0 15px
+			font-size: 11px
+			font-weight: 500
+		
+		&-wrap
+			display: flex
+			margin:
+				top: 15px
+			flex-flow: column
+			gap: 7px
+
+		&-elem
+			display: flex 
+			padding: 
+				left: 15px
+			font-size: 12px
+			font-weight: 500
+			color: #8C8C8C
+			gap: 6px
+
+			&.open
+				.editor-explorer-elem-arrow
+					transform: rotate(90deg)
+
+			&.project-name
+				padding: 0
+				font-size: 11px
+				font-weight: 800
+				color: #CCCCCC
+				text-transform: uppercase
+
+	&-content
+		width: 100%
+
+	&-tab
+		display: flex
+		max-height: var(--tab-height)
+		align-items: center
+
+		&-elem
+			display: flex
+			padding: 9px 10px
+				left: 14px
+			font-size: 13px
+			font-weight: 500
+			color: #8F8F8F
+			background-color: #1E1E1E
+			align-items: center 
+
+			&-icon
+				margin:
+					right: 3px
+
+			&-close
+				margin: 
+					left: 9px
+				background-color: transparent
+				border: 0
+
+	&-breadcrumbs
+		display: flex
+		padding: 3px 16px
+		height: var(--breadcrumbs-height)
+		background-color: #1E1E1E
+		gap: 5px
+
+		&-elem
+			display: flex
+			font-size: 13px
+			font-weight: 500
+			color: #A9A9A9
+			align-items: center
+			gap: 5px
+
+			&:last-child
+				&:after
+					display: none
+
+			&:after
+				content: ''
+				display: block
+				width: 6px
+				height: 10px
+				background-image: url('../images/general/icon/bc-arrow-icon.svg')
+				background-size: 100% auto
+				background-position: center center
+				background-repeat: no-repeat
+
+	&-field
+		display: flex
+		padding:
+			bottom: 24px
+		width: 100%
+		height: calc(100% - (var(--tab-height) + var(--breadcrumbs-height) + var(--terminal-height)))
+		max-height: 552px
+		background-color: #1E1E1E
+		flex-flow: column
+		gap: 3px
+		counter-reset: rows
+		overflow-y: auto
+
+		&-row
+			display: flex
+			font-family: $default-font
+			width: 100%
+			font-size: 14px
+			font-weight: 500
+			line-height: 18px
+			color: #fff
+			flex-wrap: wrap
+			align-items: center
+			counter-reset: childs
+			gap: 0 25px
+
+			& > .editor-field-row
+				.editor-field-val
+					padding:
+						left: 18px
+					border:
+						left: 1px solid #404040
+				
+				& > .editor-field-row
+					.editor-field-val
+						padding:
+							left: 36px
+						border:
+							left: 1px solid #404040
+				
+					& > .editor-field-row
+						.editor-field-val
+							padding:
+								left: 54px
+							border:
+								left: 1px solid #404040
+
+			&:before
+				counter-increment: rows
+				content: counter(rows)
+				display: block
+				width: 48px
+				color: #858585
+				text-align: right
+			
+			.tag
+				color: #569CD6
+
+			.tag-text
+				color: #CE9178
+			
+			.class
+				color: #9CDCFE
+
+			.text
+				color: #D4D4D4
+
+			.text-info
+				color: #D4D4D4
+
+				&-link-val
+					transition: $default-transition
+
+				&-link
+					&:hover,
+					&:focus
+						.text-info-link-val
+							color: #007ACC
+
+		&-info
+			transition: .35s
+			opacity: 0
+			
+			&-elem
+				opacity: 0
+
+	&-terminal
+		height: var(--terminal-height)
+		background-color: #1E1E1E
+		border:
+			top: 1px solid #404140
+		
+		&-tab
+			display: flex
+			padding: 0 20px
+			align-items: center
+			gap: 24px
+
+			&-btn
+				padding: 10px 0
+				font-size: 11px
+				font-weight: 500
+				color: #8F8F8F
+				border:
+					bottom: 1px solid transparent
+
+				&.active
+					color: #E7E6E7
+					border:
+						color: #D9D9D9
+
+		&-note
+			padding: 18px 20px 0
+			background-color: #1E1E1E
+
+		&-field
+			display: flex
+			padding: 13px 20px
+			flex-flow: column
+			height: 100%
+			max-height: 82px
+			gap: 13px 
+			overflow-y: auto
+
+		&-row
+			display: flex
+			font-family: $default-font
+			font-size: 12px
+			font-weight: 400
+			line-height: 14px
+			color: #CCCCCC
+			gap: 8px
+
+			&.note
+				position: sticky
+				top: 0
+				padding: 0 8px
+				font-weight: 500
+				color: #1C1C1C
+				background-color: #D0D0D0
+			
+			strong
+				font-weight: 700
+		
+		&-input
+			display: flex
+			position: relative
+			align-items: center
+
+			&-field
+				min-width: 20px
+				color: #CCCCCC
+				background-color: transparent
+				border: 0
+
+				&:focus
+					background-color: rgba(tomato, .2)
+
+	&-footer
+		flex: 0 0 auto
+		width: 100%
+		height: var(--footer-height)
+		background-color: #007ACC
+		border:
+			bottom-left-radius: 10px
+			bottom-right-radius: 10px

@@ -1,0 +1,23 @@
+// For all font-face file extension.
+// How to use:
+// +font-face("Merriweather"(font-face name), "../fonts/Merriweather/MerriweatherRegular/MerriweatherRegular"(font-face path), 400(font-face weight))
+// and after you can input it in code like this:
+// font-family: "Merriweather", sans-serif
+
+@mixin font-face($name, $file, $weight: normal, $style: normal, $display: swap)
+	@font-face
+		font-family: "#{$name}"
+		src: url('fonts/#{$file}.woff') format('woff'), url('fonts/#{$file}.woff2') format('woff2')
+		font-weight: $weight
+		font-style: $style
+		font-display: swap
+
+// Font-face mixin - end.
+
+// For size.
+
+@mixin size($a,$b: $a)
+	width: $a
+	height: $b
+
+// For size - end.

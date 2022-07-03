@@ -5,7 +5,6 @@ block variables
 
 block content
 	.main
-		header.main-header
 		.main-intro
 			img(src=require("images/content/memoji/memoji-1.png")
 				aria-hidden="true"
@@ -34,22 +33,79 @@ block content
 				.editor-explorer
 					h4.editor-explorer-title EXPLORER
 					.editor-explorer-wrap
-						.editor-explorer-elem.project-name.open
-							img(src=require("images/general/icon/arrow-right-icon.svg")
-								aria-hidden="true"
-								alt="Arrow right icon").editor-explorer-elem-arrow
-							| portfolio
+						.editor-explorer-elem.project-name
+							.editor-explorer-elem-wrap.open
+								img(src=require("images/general/icon/arrow-right-icon.svg")
+									aria-hidden="true"
+									alt="Arrow right icon").editor-explorer-elem-arrow
+								| portfolio
 						.editor-explorer-elem
-							img(src=require("images/general/icon/arrow-right-icon.svg")
-								aria-hidden="true"
-								alt="Arrow right icon").editor-explorer-elem-arrow
-							| node_modules
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/arrow-right-icon.svg")
+									aria-hidden="true"
+									alt="Arrow right icon").editor-explorer-elem-arrow
+								| node_modules
+						.editor-explorer-elem.open
+							.editor-explorer-elem-wrap.open
+								img(src=require("images/general/icon/arrow-right-icon.svg")
+									aria-hidden="true"
+									alt="Arrow right icon").editor-explorer-elem-arrow
+								| src
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap
+									img(src=require("images/general/icon/arrow-right-icon.svg")
+										aria-hidden="true"
+										alt="Arrow right icon").editor-explorer-elem-arrow
+									| assets
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap
+									img(src=require("images/general/icon/arrow-right-icon.svg")
+										aria-hidden="true"
+										alt="Arrow right icon").editor-explorer-elem-arrow
+									| components
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap
+									img(src=require("images/general/icon/arrow-right-icon.svg")
+										aria-hidden="true"
+										alt="Arrow right icon").editor-explorer-elem-arrow
+									| js
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap
+									img(src=require("images/general/icon/javascript-icon.svg")
+										aria-hidden="true"
+										alt="JavaScript icon").editor-explorer-elem-icon
+									| index.js
 						.editor-explorer-elem
-							img(src=require("images/general/icon/arrow-right-icon.svg")
-								aria-hidden="true"
-								alt="Arrow right icon").editor-explorer-elem-arrow
-							| src
-
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/git-icon.svg")
+									aria-hidden="true"
+									alt="Git icon").editor-explorer-elem-icon
+								| .gitignore
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/json-icon.svg")
+									aria-hidden="true"
+									alt="Json icon").editor-explorer-elem-icon
+								| package-lock.json
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/json-icon.svg")
+									aria-hidden="true"
+									alt="Json icon").editor-explorer-elem-icon
+								| package.json
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/readme-icon.svg")
+									aria-hidden="true"
+									alt="Readme icon").editor-explorer-elem-icon
+								| README.md
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/webpack-icon.svg")
+									aria-hidden="true"
+									alt="Webpack icon").editor-explorer-elem-icon
+								| webpack.config.js
+								
 				.editor-content
 					.editor-tab
 						.editor-tab-elem

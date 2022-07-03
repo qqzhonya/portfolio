@@ -118,24 +118,28 @@
 			font-weight: 500
 		
 		&-wrap
-			display: flex
 			margin:
 				top: 15px
-			flex-flow: column
-			gap: 7px
 
 		&-elem
-			display: flex 
-			padding: 
+			padding:
+				top: 7px 
 				left: 15px
+			width: 100%
 			font-size: 12px
 			font-weight: 500
-			color: #8C8C8C
-			gap: 6px
+			color: #CCCCCC
+			
+			&-wrap
+				display: flex 
+				gap: 6px
 
-			&.open
-				.editor-explorer-elem-arrow
-					transform: rotate(90deg)
+				&.open
+					.editor-explorer-elem-arrow
+						transform: rotate(90deg)
+
+			&-icon
+				max-width: 12px
 
 			&.project-name
 				padding: 0

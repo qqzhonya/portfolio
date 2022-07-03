@@ -3,7 +3,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 gsap.set(
 	[
 		'.main',
@@ -113,8 +112,8 @@ tl
 .fromTo(
 	'.editor-explorer-elem',
 	{opacity: '0', z: 25},
-	{duration: .5, opacity: '1', z: 0, stagger: .3},
-	'-=.4'
+	{duration: .35, opacity: '1', z: 0, stagger: .15},
+	'-=.45'
 )
 .fromTo(
 	'.editor-terminal',

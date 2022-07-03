@@ -42,21 +42,39 @@ const tl = gsap.timeline({
 	}
 });
 
-tl.fromTo(
+tl
+.fromTo(
+	'.main-intro-photo',
+	{opacity: 0},
+	{opacity: 1, delay: .5}
+)
+.fromTo(
 	'.main-intro-elem', 
 	{opacity: 0, y: '25'}, 
-	{opacity: 1, y: '0', stagger: 1}
+	{opacity: 1, y: '0', stagger: 1},
+	'-=.3'
 )
 .to(
-	'.main-intro-elem', 
-	{duration: .5, opacity: '0', display: 'none'},
-	'+=2')
+	[
+		'.main-intro-photo',
+		'.main-intro-elem'
+	], 
+	{duration: .5, opacity: '0', y: -15, stagger: .2},
+	'+=2'
+)
+.to(
+	[
+		'.main-intro-photo',
+		'.main-intro-elem'
+	], 
+	{duration: .2, display: 'none'},
+)
 .to(
 	'.editor', 
 	{
 		opacity: 1
 	},
-	'+=.5'
+	'<'
 )
 .fromTo(
 	'.editor-head',

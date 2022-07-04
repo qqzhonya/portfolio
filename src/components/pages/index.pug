@@ -1,33 +1,434 @@
-doctype html
-html(lang="en")
-	head
-		meta(charset="utf-8")
-		title Template - All pages
-		<!--[if IE]>
-		meta(http-equiv='X-UA-Compatible', content="IE = edge")
-		<![endif]-->
-		meta(name="viewport" content="width=device-width,initial-scale=1")
-		meta(name="keywords" content="")
+extends ../template/main
 
-		link(rel='apple-touch-icon' sizes='180x180' href=require('images/favicon/apple-touch-icon.png'))
-		link(rel='icon' type='image/png' sizes='32x32' href=require('images/favicon/favicon-32x32.png'))
-		link(rel='icon' type='image/png' sizes='16x16' href=require('images/favicon/favicon-16x16.png'))
-		link(rel='manifest' href=require('images/favicon/site.webmanifest'))
-		link(rel='mask-icon' href=require('images/favicon/safari-pinned-tab.svg') color='#3078c0')
-		meta(name='msapplication-TileColor' content='#2b5797')
-		meta(name='theme-color' content='#131A2B')
+block variables
+	- var title = `Eugene's Portfolio`
 
-		<!--[if lt IE 9]>
-		script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
-		<![endif]-->
-	body
-		.wrapper
-			.allPage.content
-				.allPage_content
-					section.allPage_wrap
-						img(src=require('images/general/logo.svg') alt="Logo").allPage_logo
-						ul.allPage_list
-							li
-								a(href="first-page.html" target="_blank" rel="noopener noreferrer").allPage_link
-									| First Page
-									span (first-page.html)
+block content
+	.main
+		.main-intro
+			img(src=require("images/content/memoji/memoji-1.png")
+				aria-hidden="true"
+				alt="Memoji image").main-intro-photo
+			article.main-intro-elem
+				h1.main-intro-heading Hello, World!
+			article.main-intro-elem
+				h1.main-intro-heading My name is Eugene.
+			article.main-intro-elem
+				h1.main-intro-heading Welcome to my portfolio:)
+
+		.editor
+			header.editor-head
+				.editor-head-wrap
+					.editor-head-btn.close
+					.editor-head-btn.collapse
+					.editor-head-btn.expand
+			
+			.editor-body
+				.editor-sidebar
+					button(aria-label="Files button").editor-sidebar-btn
+						img(src=require("images/general/icon/files-icon.svg")
+							aria-hidden="true"
+							alt="Files icon").editor-sidebar-btn-icon
+
+				.editor-explorer
+					h4.editor-explorer-title EXPLORER
+					.editor-explorer-wrap
+						.editor-explorer-elem.project-name
+							.editor-explorer-elem-wrap.open
+								img(src=require("images/general/icon/arrow-right-icon.svg")
+									aria-hidden="true"
+									alt="Arrow right icon").editor-explorer-elem-arrow
+								span.editor-explorer-elem-text
+									| portfolio
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/arrow-right-icon.svg")
+									aria-hidden="true"
+									alt="Arrow right icon").editor-explorer-elem-arrow
+								span.editor-explorer-elem-text
+									| node_modules
+						.editor-explorer-elem.open
+							.editor-explorer-elem-wrap.open
+								img(src=require("images/general/icon/arrow-right-icon.svg")
+									aria-hidden="true"
+									alt="Arrow right icon").editor-explorer-elem-arrow
+								span.editor-explorer-elem-text
+									| src
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap.open
+									img(src=require("images/general/icon/arrow-right-icon.svg")
+										aria-hidden="true"
+										alt="Arrow right icon").editor-explorer-elem-arrow
+									span.editor-explorer-elem-text
+										| assets
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| fonts
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| images
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap.open 
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| styles
+									.editor-explorer-elem
+										.editor-explorer-elem-wrap
+											img(src=require("images/general/icon/arrow-right-icon.svg")
+												aria-hidden="true"
+												alt="Arrow right icon").editor-explorer-elem-arrow
+											span.editor-explorer-elem-text
+												| modules
+									.editor-explorer-elem
+										.editor-explorer-elem-wrap.open
+											img(src=require("images/general/icon/arrow-right-icon.svg")
+												aria-hidden="true"
+												alt="Arrow right icon").editor-explorer-elem-arrow
+											span.editor-explorer-elem-text
+												| pages
+										.editor-explorer-elem
+											.editor-explorer-elem-wrap
+												img(src=require("images/general/icon/sass-icon.svg")
+													aria-hidden="true"
+													alt="Sass icon").editor-explorer-elem-icon
+												span.editor-explorer-elem-text
+													| main-page.sass
+									.editor-explorer-elem
+										.editor-explorer-elem-wrap
+											img(src=require("images/general/icon/arrow-right-icon.svg")
+												aria-hidden="true"
+												alt="Arrow right icon").editor-explorer-elem-arrow
+											span.editor-explorer-elem-text
+												| plugin
+									.editor-explorer-elem
+										.editor-explorer-elem-wrap
+											img(src=require("images/general/icon/arrow-right-icon.svg")
+												aria-hidden="true"
+												alt="Arrow right icon").editor-explorer-elem-arrow
+											span.editor-explorer-elem-text
+												| utils
+									.editor-explorer-elem
+										.editor-explorer-elem-wrap
+											img(src=require("images/general/icon/sass-icon.svg")
+												aria-hidden="true"
+												alt="Sass icon").editor-explorer-elem-icon
+											span.editor-explorer-elem-text
+												| main.sass
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap.open
+									img(src=require("images/general/icon/arrow-right-icon.svg")
+										aria-hidden="true"
+										alt="Arrow right icon").editor-explorer-elem-arrow
+									span.editor-explorer-elem-text
+										| components
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| modules
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap.open
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| pages
+									.editor-explorer-elem
+										.editor-explorer-elem-wrap
+											img(src=require("images/general/icon/pug-icon.svg")
+												aria-hidden="true"
+												alt="PUG icon").editor-explorer-elem-icon
+											span.editor-explorer-elem-text
+												| main-page.pug
+
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| template
+								.editor-explorer-elem
+									.editor-explorer-elem-wrap
+										img(src=require("images/general/icon/arrow-right-icon.svg")
+											aria-hidden="true"
+											alt="Arrow right icon").editor-explorer-elem-arrow
+										span.editor-explorer-elem-text
+											| utils
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap
+									img(src=require("images/general/icon/arrow-right-icon.svg")
+										aria-hidden="true"
+										alt="Arrow right icon").editor-explorer-elem-arrow
+									span.editor-explorer-elem-text
+										| js
+							.editor-explorer-elem
+								.editor-explorer-elem-wrap
+									img(src=require("images/general/icon/javascript-icon.svg")
+										aria-hidden="true"
+										alt="JavaScript icon").editor-explorer-elem-icon
+									span.editor-explorer-elem-text
+										| index.js
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/git-icon.svg")
+									aria-hidden="true"
+									alt="Git icon").editor-explorer-elem-icon
+								span.editor-explorer-elem-text
+									| .gitignore
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/json-icon.svg")
+									aria-hidden="true"
+									alt="Json icon").editor-explorer-elem-icon
+								span.editor-explorer-elem-text
+									| package-lock.json
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/json-icon.svg")
+									aria-hidden="true"
+									alt="Json icon").editor-explorer-elem-icon
+								span.editor-explorer-elem-text
+									| package.json
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/readme-icon.svg")
+									aria-hidden="true"
+									alt="Readme icon").editor-explorer-elem-icon
+								span.editor-explorer-elem-text
+									| README.md
+						.editor-explorer-elem
+							.editor-explorer-elem-wrap
+								img(src=require("images/general/icon/webpack-icon.svg")
+									aria-hidden="true"
+									alt="Webpack icon").editor-explorer-elem-icon
+								span.editor-explorer-elem-text
+									| webpack.config.js
+								
+				.editor-content
+					.editor-tab
+						.editor-tab-elem
+							img(src=require("images/general/icon/pug-icon.svg")
+								aria-hidden="true"
+								alt="PUG icon").editor-tab-elem-icon
+							| index.pug
+							button(aria-label="Close tab button").editor-tab-elem-close
+								img(src=require("images/general/icon/cross-icon.svg")
+									aria-hidden="true"
+									alt="Cross iocn").editor-tab-elem-close-icon
+					
+					.editor-breadcrumbs
+						.editor-breadcrumbs-elem
+							| src
+						.editor-breadcrumbs-elem
+							| components
+						.editor-breadcrumbs-elem
+							| pages
+						.editor-breadcrumbs-elem.file
+							img(src=require("images/general/icon/pug-icon.svg") 
+								aria-hidden="true"
+								alt="PUG icon").editor-breadcrumbs-elem-icon
+							| main-page.pug
+
+					.editor-field
+						.editor-field-row
+							.editor-field-val 
+								span.tag extends 
+								span.class ../template/main
+						.editor-field-row
+						.editor-field-row
+							.editor-field-val 
+								span.tag block 
+								span.class variables
+							.editor-field-row
+								.editor-field-val 
+									span.text - 
+									span.tag var 
+									span.class title 
+									span.text = 
+									span.tag-text 'Template - First page'
+						.editor-field-row
+						.editor-field-row
+							.edtior-field-val
+								span.tag block 
+								span.class content 
+							.editor-field-row.editor-info-wrap
+								.editor-field-val 
+									span.class .main
+								
+					.editor-terminal
+						.editor-terminal-tooltip
+							| Use this commands and press 'enter' for results
+							button(onclick="closeTooltip(this)").editor-terminal-tooltip-close Got it
+						.editor-terminal-tab
+							.editor-terminal-tab-btn PROBLEMS
+							.editor-terminal-tab-btn OUTPUT
+							.editor-terminal-tab-btn.active TERMINAL
+							.editor-terminal-tab-btn DEBUG CONSOLE
+						
+						.editor-terminal-note
+							.editor-terminal-row.note
+									span.editor-terminal-row-path Type what you want to know: 
+										strong about 
+										| | 
+										strong works 
+										| | 
+										strong links 
+										| | or 
+										strong clear 
+										| to clean it up
+							
+						.editor-terminal-field
+							.editor-terminal-row.editor-terminal-input-row
+								span.editor-terminal-row-path eugenerudenko@ portfolioDev % 
+								label.editor-terminal-input 
+									input(type="text" name="terminal-command" autocomplete="off").editor-terminal-input-field.active
+
+			footer.editor-footer
+
+		.message
+			img(src=require("images/content/memoji/memoji-3.png")
+				alt="Memoji photo").message-photo
+			p.message-text
+				| This portfolio made for fun.
+			p.message-text
+				| For full expirience visit this site on your computer.
+			p.message-text
+				| Sorry for this inconvenience.
+		
+	template.info-template.about
+		.editor-field-row.editor-field-info#about-info
+			.editor-field-val 
+				span.tag section
+				span.class .about
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					span.text | Hello!
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					span.text | As you already know, my name is Eugene.
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+						span.text | Im kind of front-end developer for 3 years now, or so.
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+						span.text | Usually im use PUG, SASS and Webpack.
+	
+	template.info-template.works
+		.editor-field-row.editor-field-info#works-info
+			.editor-field-val 
+				span.tag section
+				span.class .works
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					span.text
+						| | Here some of my works: 
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					a(href="https://takasho.agency/" target="_blank" rel="noreferrer noopener").text-info.text-info-link
+						span.tag a
+						| (
+						span.class href
+						span.text =
+						span.tag-text "https://takasho.agency/" 
+						span.class target
+						| =
+						span.tag-text "_blank" 
+						span.class rel
+						| =
+						span.tag-text "noreferrer noopener"
+						| ) 
+						span.text-info-link-val TakASho
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					a(href="https://dedicatedfreight.ca/" target="_blank" rel="noreferrer noopener").text-info.text-info-link
+						span.tag a
+						| (
+						span.class href
+						span.text =
+						span.tag-text "https://dedicatedfreight.ca/" 
+						span.class target
+						| =
+						span.tag-text "_blank" 
+						span.class rel
+						| =
+						span.tag-text "noreferrer noopener"
+						| ) 
+						span.text-info-link-val Dedicated Freight
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					a(href="https://coincub.com/" target="_blank" rel="noreferrer noopener").text-info.text-info-link
+						span.tag a
+						| (
+						span.class href
+						span.text =
+						span.tag-text "https://coincub.com/" 
+						span.class target
+						| =
+						span.tag-text "_blank" 
+						span.class rel
+						| =
+						span.tag-text "noreferrer noopener"
+						| ) 
+						span.text-info-link-val CoinCub
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					a(href="https://www.lifecrypto.life/" target="_blank" rel="noreferrer noopener").text-info.text-info-link
+						span.tag a
+						| (
+						span.class href
+						span.text =
+						span.tag-text "https://www.lifecrypto.life/" 
+						span.class target
+						| =
+						span.tag-text "_blank" 
+						span.class rel
+						| =
+						span.tag-text "noreferrer noopener"
+						| ) 
+						span.text-info-link-val LifeCrypto
+		
+	template.info-template.links
+		.editor-field-row.editor-field-info#links-info
+			.editor-field-val 
+				span.tag section
+				span.class .links
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					span.text
+						| | My links: 
+			.editor-field-row.editor-field-info-elem
+				.editor-field-val 
+					a(href="https://github.com/qqzhonya" target="_blank" rel="noreferrer noopener").text-info.text-info-link
+						span.tag a
+						| (
+						span.class href
+						span.text =
+						span.tag-text "https://github.com/qqzhonya" 
+						span.class target
+						| =
+						span.tag-text "_blank" 
+						span.class rel
+						| =
+						span.tag-text "noreferrer noopener"
+						| ) 
+						span.text-info-link-val GitHub
+
+	template#editor-terminal-input-row
+		.editor-terminal-row.editor-terminal-input-row
+			span.editor-terminal-row-path eugenerudenko@ portfolioDev % 
+			label.editor-terminal-input 
+				input(type="text" name="terminal-command" autocomplete="off").editor-terminal-input-field.active
+				span.editor-terminal-input-caret

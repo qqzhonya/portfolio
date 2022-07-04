@@ -4,6 +4,7 @@
 	height: 100vh
 	justify-content: center
 	align-items: center
+	overflow-x: hidden
 	overflow-y: auto
 
 	&-intro
@@ -57,8 +58,8 @@
 		height: var(--head-height)
 		background-color: #3C3C3C
 		border:
-			top-left-radius: 10px
-			top-right-radius: 10px
+			top-left-radius: 9px
+			top-right-radius: 9px
 		flex: 0 0 auto
 
 		&-wrap
@@ -140,6 +141,11 @@
 
 			&-icon
 				max-width: 12px
+			
+			&-text
+				white-space: nowrap
+				text-overflow: ellipsis
+				overflow: hidden
 
 			&.project-name
 				padding: 0
@@ -225,6 +231,7 @@
 			font-weight: 500
 			line-height: 18px
 			color: #fff
+			white-space: nowrap
 			flex-wrap: wrap
 			align-items: center
 			counter-reset: childs
@@ -291,10 +298,57 @@
 				opacity: 0
 
 	&-terminal
+		position: relative
 		height: var(--terminal-height)
 		background-color: #1E1E1E
 		border:
 			top: 1px solid #404140
+
+		&-tooltip
+			display: flex
+			position: absolute
+			top: -40px
+			left: 20%
+			padding: 4px 8px
+			max-width: 150px
+			font-family: $default-font
+			font-size: 12px
+			font-weight: 400
+			line-height: 14px
+			color: #1C1C1C
+			background-color: #D0D0D0
+			flex-flow: column
+			align-items: center
+			gap: 4px
+			z-index: 10
+
+			&:after
+				content: ''
+				position: absolute
+				margin:
+					left: -2px
+				left: 50%
+				bottom: -4px
+				width: 4px
+				height: 4px
+				border:
+					top: 4px solid transparent
+					left: 4px solid transparent
+					right: 4px solid #D0D0D0
+					bottom: 4px solid #D0D0D0
+				transform: rotate(45deg)
+
+			&-close
+				padding: 2px
+				background-color: transparent
+				border: 1px solid #1C1C1C
+				transition: $default-transition
+				cursor: pointer
+
+				&:hover,
+				&:focus
+					color: #D0D0D0
+					background-color: #1C1C1C
 		
 		&-tab
 			display: flex
@@ -321,21 +375,30 @@
 
 		&-field
 			display: flex
+			position: relative
 			padding: 13px 20px
 			flex-flow: column
 			height: 100%
 			max-height: 82px
 			gap: 13px 
-			overflow-y: auto
+			overflow: hidden
+
+			.ps__thumb-y
+				width: 8px
+				background-color: #D0D0D0
+				border:
+					radius: 0
 
 		&-row
 			display: flex
+			position: relative
 			font-family: $default-font
 			font-size: 12px
 			font-weight: 400
 			line-height: 14px
 			color: #CCCCCC
 			gap: 8px
+			z-index: 2
 
 			&.note
 				position: sticky
@@ -353,9 +416,29 @@
 
 		&-input
 			display: flex
+			position: relative
 			width: 100%
 			position: relative
 			align-items: center
+			will-change: opacity
+
+			&-caret
+				content: ''
+				display: block
+				position: absolute
+				top: 0
+				left: 0
+				width: 8px
+				height: 100%
+				background-color: #CCCCCC
+				animation: cursorBlink .7s linear alternate infinite
+				opacity: 0
+
+				@keyframes cursorBlink
+					0%
+						opacity: 0
+					100%
+						opacity: 1
 
 			&-field
 				width: 100%
@@ -363,10 +446,18 @@
 				background-color: transparent
 				border: 0
 				transition: $default-transition
+				cursor: pointer
 
-				&:hover,
-				&:focus
+				&:disabled
+					cursor: default
+
+				&:not(:disabled):hover,
+				&:not(:disabled):focus
 					background-color: rgba(#CCCCCC, .2)
+
+				&:focus + .editor-terminal-input-caret,
+				&:disabled + .editor-terminal-input-caret
+					display: none
 
 	&-footer
 		flex: 0 0 auto
@@ -376,3 +467,39 @@
 		border:
 			bottom-left-radius: 10px
 			bottom-right-radius: 10px
+
+.message
+	display: none
+	padding: 16px
+	flex-flow: column
+	align-items: center
+	gap: 12px
+
+	&-photo
+		max-width: 150px
+	
+	&-text
+		font-size: 14px
+		line-height: 18px
+		text-align: center
+
+@supports  #{'\selector(*:focus-visible)'}
+	.text-info.text-info-link
+		&:focus
+			.text-info-link-val
+				color: #D4D4D4
+
+		&:hover,
+		&:focus-visible
+			.text-info-link-val
+				color: #007ACC
+
+	.editor-terminal-tooltip-close
+		&:focus
+			color: #1C1C1C
+			background-color: #D0D0D0
+
+		&:hover,
+		&:focus-visible
+			color: #D0D0D0
+			background-color: #1C1C1C

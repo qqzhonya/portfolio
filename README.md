@@ -1,8 +1,5 @@
 <p align="center">
-	<picture>
-		<source media="(prefers-color-scheme: dark)" srcset="https://github.com/qqzhonya/webpack-template/blob/main/src/assets/images/general/logo.svg?raw=true">
-		<img alt="Template logo" width="250" src="https://github.com/qqzhonya/webpack-template/blob/main/src/assets/images/general/logo-dark.svg?raw=true">
-	</picture>
+	<img alt="Template logo" width="250" src="https://github.com/qqzhonya/portfolio/blob/main/src/assets/images/content/memoji/memoji-2.png?raw=true">
 </p>
 
 **First**:<br />
